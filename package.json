@@ -6,7 +6,6 @@
   "scripts": {
     "start": "node ./src/index.js",
     "dev": "nodemon ./src/index.js",
-    "heroku-prebuild": "npm install --dev",
     "build": "webpack"
   },
   "repository": {
