@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node ./src/index.js",
     "dev": "nodemon ./src/index.js",
+    "heroku-prebuild": "npm install --dev",
     "build": "webpack"
   },
   "repository": {
@@ -20,7 +21,8 @@
   },
   "homepage": "https://github.com/laripaim/programa-de-formacao-S03-back#readme",
   "devDependencies": {
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "build": "webpack"
   },
   "dependencies": {
     "cors": "^2.8.5",
