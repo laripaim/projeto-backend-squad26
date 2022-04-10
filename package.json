@@ -21,7 +21,7 @@
   "homepage": "https://github.com/laripaim/programa-de-formacao-S03-back#readme",
   "devDependencies": {
     "nodemon": "^2.0.15",
-    "build": "webpack"
+    "webpack-cli": "^4.9.2"
   },
   "dependencies": {
     "cors": "^2.8.5",
@@ -31,6 +31,7 @@
     "knex": "^1.0.2",
     "nodemon": "^2.0.15",
     "pg": "^8.7.3",
+    "webpack": "^5.72.0",
     "yup": "^0.32.11",
     "yup-locales": "^1.2.2"
   }
