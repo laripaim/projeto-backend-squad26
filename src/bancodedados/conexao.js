@@ -12,4 +12,6 @@ const knex = require("knex")({
     }
 });
 
-export default knex;
+module.exports = {
+    knex
+}
