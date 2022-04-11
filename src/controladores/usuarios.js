@@ -129,10 +129,15 @@ const excluirUsuario = async (req, res) => {
     };
 };
 
+const obterStatus = async(req, res) => {
+    return res.status(200).json("ok");
+};
+
 module.exports = { 
     listarUsuarios,
     detalharUsuario,
     cadastrarUsuario,
     atualizarUsuario,
-    excluirUsuario
+    excluirUsuario,
+    obterStatus
  };
