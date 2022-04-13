@@ -38,7 +38,10 @@ const cadastrarUsuario = async (req, res) => {
             email, 
             linkedin, 
             skills, 
-            biografia } = req.body;
+            biografia,
+            senha,
+            foto,
+            cargo } = req.body;
 
     try {
         await cadastroUsuarioSchema.validate(req.body);
@@ -57,7 +60,10 @@ const cadastrarUsuario = async (req, res) => {
                 email,
                 linkedin, 
                 skills, 
-                biografia
+                biografia,
+                senha,
+                foto,
+                cargo
             })
             .returning("*");
 
@@ -77,7 +83,10 @@ const atualizarUsuario = async (req, res) => {
         email,
         linkedin, 
         skills, 
-        biografia } = req.body;
+        biografia,
+        senha,
+        foto,
+        cargo } = req.body;
     const { id } = req.params;
 
         try {
@@ -99,7 +108,10 @@ const atualizarUsuario = async (req, res) => {
                 email,
                 linkedin,
                 skills,
-                biografia
+                biografia,
+                senha,
+                foto,
+                cargo
             })
             .returning("*");
 

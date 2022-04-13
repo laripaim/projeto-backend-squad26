@@ -8,3 +8,12 @@ create table if not exists usuarios (
     skills text not null,
     biografia text
 );
+
+alter table usuarios
+add column senha text
+
+alter table usuarios
+add column foto text
+
+alter table usuarios
+add column cargo text

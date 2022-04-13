@@ -1,10 +1,26 @@
-require("dotenv").config();
+// require("dotenv").config();
+
+// const knex = require("knex")({
+//     client: "pg",
+//     connection: process.env.PG_CONNECTION_STRING,
+//     searchPath: ['knex', 'public']
+    
+// });
+
+// module.exports = knex
 
 const knex = require("knex")({
     client: "pg",
-    connection: process.env.PG_CONNECTION_STRING,
-    searchPath: ['knex', 'public']
-    
-});
-
-module.exports = knex
+    connection: {
+      host: process.env.DB_HOST,
+      user: process.env.DB_USER,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_DATABASE,
+      port: process.env.DB_PORT,
+      ssl: {
+        rejectUnauthorized: false,
+      },
+    },
+  });
+  
+  module.exports = knex;
