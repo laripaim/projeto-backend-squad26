@@ -11,8 +11,7 @@ const {
     detalharUsuario,
     cadastrarUsuario,
     atualizarUsuario,
-    excluirUsuario,
-    obterStatus
+    excluirUsuario
 } = require('./controladores/usuarios');
 
 rotas.post('/upload', subirImagem);
@@ -23,7 +22,6 @@ rotas.get('/usuarios/:id', detalharUsuario);
 rotas.post('/usuarios', cadastrarUsuario);
 rotas.put('/usuarios/:id', atualizarUsuario);
 rotas.delete('/usuarios/:id', excluirUsuario);
-rotas.get('/status', obterStatus);
 
 rotas.post('/login', login);
 

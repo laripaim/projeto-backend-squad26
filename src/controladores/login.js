@@ -5,7 +5,7 @@ const loginSchema = require('../validacoes/loginSchema');
 
 const login = async (req, res) => {
     const { email, senha } = req.body;
-
+    
     try {
         await loginSchema.validate(req.body);
         const usuario = await knex("usuarios").where({ email }).first();

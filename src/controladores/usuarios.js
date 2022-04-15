@@ -5,7 +5,7 @@ const atualizacaoUsuarioSchema = require("../validacoes/atualizacaoUsuarioSchema
 const listarUsuarios = async (req, res) => {
 
     try {
-        const listaUsuarios = await knex("usuarios")
+        const listaUsuarios = await knex("funcionarios")
 
         if(!listaUsuarios) {
             return res.status(400).json("Opa: não foi possível listar os clientes. Tente outra vez.");
@@ -21,7 +21,7 @@ const detalharUsuario = async (req, res) => {
     const { id } = req.params;
 
     try {
-        const usuarioDetalhado = await knex("usuarios").where({  id });
+        const usuarioDetalhado = await knex("funcionarios").where({  id });
 
         if(!usuarioDetalhado) {
             return res.status(400).json("Oh-oh: não foi possível localizar o usuário. Tente outra vez.");
@@ -46,7 +46,7 @@ const cadastrarUsuario = async (req, res) => {
     try {
         await cadastroUsuarioSchema.validate(req.body);
 
-        const existeUsuario = await knex("usuarios")
+        const existeUsuario = await knex("funcionarios")
             .where({ email })
             .first();
 
@@ -54,7 +54,7 @@ const cadastrarUsuario = async (req, res) => {
             return res.status(400).json("Opa: o e-mail informado já foi cadastrado!");
         }
 
-        const usuario = await knex("usuarios")
+        const usuario = await knex("funcionarios")
             .insert({
                 nome,
                 email,
@@ -92,16 +92,8 @@ const atualizarUsuario = async (req, res) => {
         try {
    
             await atualizacaoUsuarioSchema.validate(req.body);
-
-            // const emailCadastrado = await knex("usuarios")
-            //     .where({ email })
-            //     .first();
-
-            // if (emailCadastrado) {
-            //     return res.status(400).json("Opa: este e-mail já foi cadastrado.")
-            // };
         
-            const usuarioAtualizado = await knex("usuarios")
+            const usuarioAtualizado = await knex("funcionarios")
             .where({ id })
             .update({
                 nome,
@@ -129,7 +121,7 @@ const excluirUsuario = async (req, res) => {
     const { id } = req.params;
 
     try {
-        const deletarUsario = await knex("usuarios").del().where({ id }).returning("*");
+        const deletarUsario = await knex("funcionarios").del().where({ id }).returning("*");
 
         if(!deletarUsario) {
             return res.status(400).json("Não foi possível excluir o usuário. Tente outra vez.");
@@ -141,15 +133,10 @@ const excluirUsuario = async (req, res) => {
     };
 };
 
-const obterStatus = async(req, res) => {
-    return res.status(200).json("ok");
-};
-
 module.exports = { 
     listarUsuarios,
     detalharUsuario,
     cadastrarUsuario,
     atualizarUsuario,
-    excluirUsuario,
-    obterStatus
+    excluirUsuario
  };
